@@ -1,0 +1,99 @@
+/*
+Theme Name: MJT Theme
+Theme URI: https://wordpress.org/themes/twentytwenty/
+Author: Matt Jones
+Author URI: https://mattjones.tech
+Description: Custom theme for 2024
+Tags: custom, responsive, themegen
+Version: 1.0.0
+Requires at least: 6.3.1
+Tested up to: 6.3.1
+Requires PHP: 8.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mjttheme
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+    --themegen-bg: black;
+    --themegen-txt: white;
+    --themegen-pri: #6ab1eb;
+}
+
+body {
+    background-color: var(--themegen-bg);
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    color: var(--themegen-txt);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header, footer {
+    background-color: var(--themegen-pri);
+}
+
+div.hero-text {
+  position: absolute;
+  margin: 0 auto;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+}
+
+p.left {
+  text-align: left;
+}
+
+.gradient-bg {
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px auto;
+  color: white;
+  text-align: center;
+  position: relative;
+  isolation: isolate;
+}
+
+.gradient-bg::before {
+  background: radial-gradient(#117fc2d0, rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  width: 480px;
+  height: 360px;
+  margin-top: -50px;
+  margin-left: -200px;
+}
+
+.gradient-bg::after {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #ff871677 0deg,
+    #ff9d1c3e 55deg,
+    #8808bb69 120deg,
+    #76c21185 160deg,
+    transparent 360deg
+  );
+  width: 240px;
+  height: 180px;
+  margin-left: -350px;
+  margin-top: 150px;
+}
+
+.gradient-bg::before,
+.gradient-bg::after {
+  content: "";
+  left: 55%;
+  position: absolute;
+  filter: blur(45px);
+  background-size: cover;
+  z-index: -1;
+}
