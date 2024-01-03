@@ -1,11 +1,17 @@
 <?php
 //Add stylesheet
 function add_style() {
+  //custom styles
   wp_enqueue_style('blocks-styles', get_stylesheet_uri());
-  wp_enqueue_script('pjs', get_template_directory_uri() . '/node_modules/particles.js/particles.js', [], '2.0.0', []);
+  //particles
+  wp_enqueue_script('pjs', get_template_directory_uri() . '/node_modules/particlesjs/dist/particles.min.js', [], '2.0.0', []);
   wp_enqueue_script('particle-instance', get_template_directory_uri() . '/js/particles.js', [], '1.0.0', []);
+  //anime js
   wp_enqueue_script('anime-core', get_template_directory_uri() . '/node_modules/animejs/lib/anime.min.js', [], null, []);
   wp_enqueue_script('anime-config', get_template_directory_uri(). '/js/cards.js', [], null, []);
+  //bootstrap
+  wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css');
+  wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', [], null, []);
 }
 add_action('wp_enqueue_scripts', 'add_style');
 
