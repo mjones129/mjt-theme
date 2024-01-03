@@ -1,4 +1,5 @@
-import { particlesJS } from "particlesjs";
-particlesJS.load("particles-js", "/wp-content/themes/themegen/assets/particles.json", function () {
-  console.log("callback - particles.js config loaded");
+import '../node_modules/particlesjs';
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+particlesJS.load('particles-js', '../assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
 });
