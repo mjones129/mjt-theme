@@ -12,6 +12,7 @@
   "author": "Matt Jones",
   "license": "ISC",
   "dependencies": {
+    "@tsparticles/basic": "^3.0.3",
     "@tsparticles/engine": "^3.0.3",
     "animejs": "^3.2.2",
     "axios": "^1.5.1",
