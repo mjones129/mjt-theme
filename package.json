@@ -12,12 +12,12 @@
   "author": "Matt Jones",
   "license": "ISC",
   "dependencies": {
+    "@tsparticles/engine": "^3.0.3",
     "animejs": "^3.2.2",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
     "extract-zip": "^2.0.1",
     "figlet": "^1.6.0",
-    "particlesjs": "^2.2.3",
     "prompt-sync": "^4.2.0"
   }
 }
