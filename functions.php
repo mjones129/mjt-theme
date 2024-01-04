@@ -2,8 +2,11 @@
 //Add stylesheet
 function add_style() {
   //particles
-  wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", [], null, true);
+  // wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", [], null, true);
   wp_enqueue_script("tsparticles", get_template_directory_uri() . "/node_modules/@tsparticles/engine/tsparticles.engine.js", [], null, true);
+  // wp_enqueue_script("linkspreset", "https://cdn.jsdelivr.net/npm/@tsparticles/preset-links@2/tsparticles.preset.links.min.js", ["tsparticles"], "2.0.0", true);
+  wp_enqueue_script("linkpreset", "https://cdnjs.cloudflare.com/ajax/libs/tsparticles-preset-links/2.12.0/tsparticles.preset.links.min.js", ["tsparticles"], "2.0.0", true);
+  wp_enqueue_script("tspinit", get_template_directory_uri() . "/js/tsp-init.js", ["tsparticles"], null, true);
   //anime js
   // wp_enqueue_script('anime-core', get_template_directory_uri() . '/node_modules/animejs/lib/anime.min.js', [], null, []);
   // wp_enqueue_script('anime-config', get_template_directory_uri(). '/js/cards.js', [], null, []);
