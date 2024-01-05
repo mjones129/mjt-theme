@@ -12,7 +12,6 @@
   "author": "Matt Jones",
   "license": "ISC",
   "dependencies": {
-    "@tsparticles/engine": "^3.0.3",
     "@tsparticles/interaction-particles-links": "^3.0.3",
     "@tsparticles/preset-links": "^3.0.2",
     "animejs": "^3.2.2",
