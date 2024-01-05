@@ -4,7 +4,7 @@
 tsParticles
     .load({
         id: "tsparticles",
-        url: "/wp-content/themes/mjt-theme/js/config/particle.json",
+        url: "/wp-content/themes/mjt-theme/js/config/particles.json",
     })
     .then(container => {
         console.log("callback - tsparticles config loaded");
