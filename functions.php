@@ -36,7 +36,6 @@ function add_style() {
   //particles
   // wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", [], null, true);
   wp_enqueue_script("tsparticles", get_template_directory_uri() . "/node_modules/@tsparticles/engine/tsparticles.engine.js", [], null, true);
-  wp_enqueue_script("tsbasic", get_template_directory_uri() . "/node_modules/@tsparticles/basic/tsparticles.basic.js", ["tsparticles"], null, true);
   wp_enqueue_script("movebase", get_template_directory_uri() . "/node_modules/@tsparticles/move-base/tsparticles.move.base.js", ["tsparticles"], null, true);
   wp_enqueue_script("shape-circle", get_template_directory_uri() . "/node_modules/@tsparticles/shape-circle/tsparticles.shape.circle.min.js", ["tsparticles"], null, true);
   wp_enqueue_script("colorupdate", get_template_directory_uri() . "/node_modules/@tsparticles/updater-color/tsparticles.updater.color.min.js", ["tsparticles"], null, true);
