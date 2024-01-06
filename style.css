@@ -37,13 +37,8 @@ header, footer {
     background-color: var(--themegen-pri);
 }
 
-div.hero-text {
-  position: absolute;
-  margin: 0 auto;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 500px;
+.relative {
+  position: relative;
 }
 
 p.left {
@@ -51,13 +46,12 @@ p.left {
 }
 
 .gradient-bg {
-  min-height: 80vh;
+  min-height: 38vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px auto;
   color: white;
   text-align: center;
   position: relative;
@@ -96,4 +90,8 @@ p.left {
   filter: blur(45px);
   background-size: cover;
   z-index: -1;
+}
+
+.huge-top {
+  position: relative;
 }
