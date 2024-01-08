@@ -19,7 +19,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 :root {
-    --themegen-bg: black;
+    --themegen-bg: grey;
     --themegen-txt: white;
     --themegen-pri: #6ab1eb;
 }
@@ -35,10 +35,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 header, footer {
     background-color: var(--themegen-pri);
-}
-
-.relative {
-  position: relative;
 }
 
 p.left {
@@ -92,6 +88,10 @@ p.left {
   z-index: -1;
 }
 
-.huge-top {
-  position: relative;
+.translate {
+  transform: translateY(-450px);
+}
+
+.hero-margin {
+  margin-bottom: 8rem;
 }
