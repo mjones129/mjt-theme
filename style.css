@@ -19,7 +19,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
 :root {
-    --themegen-bg: grey;
+    --themegen-bg: #1e1e1e;
     --themegen-txt: white;
     --themegen-pri: #6ab1eb;
 }
