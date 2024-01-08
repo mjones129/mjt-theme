@@ -33,26 +33,17 @@ add_filter('pre_set_site_transient_update_themes', 'automatic_Github_updates', 1
 
 //Add stylesheet
 function add_style() {
-  //particles
-  wp_enqueue_script("basicbundle", get_template_directory_uri() . "/node_modules/@tsparticles/basic/tsparticles.basic.bundle.min.js", [], null, true);
-  wp_enqueue_script("engine", get_template_directory_uri() . "/node_modules/@tsparticles/engine/tsparticles.engine.min.js", [], null, true);
-  wp_enqueue_script("shape-circle", get_template_directory_uri() . "/node_modules/@tsparticles/shape-circle/tsparticles.shape.circle.min.js", ["engine"], null, true);
-  wp_enqueue_script("colorupdate", get_template_directory_uri() . "/node_modules/@tsparticles/updater-color/tsparticles.updater.color.min.js", ["engine"], null, true);
-  wp_enqueue_script("opacityupdate", get_template_directory_uri() . "/node_modules/@tsparticles/updater-opacity/tsparticles.updater.opacity.min.js", ["engine"], null, true);
-  wp_enqueue_script("updateoutmode", get_template_directory_uri() . "/node_modules/@tsparticles/updater-out-modes/tsparticles.updater.out-modes.min.js", ["engine"], null, true);
-  wp_enqueue_script("updatersize", get_template_directory_uri() . "/node_modules/@tsparticles/updater-size/tsparticles.updater.size.min.js", ["engine"], null, true);
-  wp_enqueue_script("presetlinks", get_template_directory_uri() . "/node_modules/@tsparticles/preset-links/tsparticles.preset.links.bundle.min.js", ["engine"], null, true);
-  // wp_enqueue_script("tsinteraction", get_template_directory_uri() . "/node_modules/@tsparticles/interaction-particles/tsparticles.interaction-particles.min.js", ["engine"], null, true);
-  // wp_enqueue_script("linkspreset", "https://cdn.jsdelivr.net/npm/@tsparticles/preset-links@2/tsparticles.preset.links.min.js", ["engine"], "2.0.0", true);
-  wp_enqueue_script("linkinteraction", get_template_directory_uri() . "/node_modules/@tsparticles/interaction-particles-links/tsparticles.interaction.particles.links.min.js", ["engine"], null, true);
-  wp_enqueue_script("tspinit", get_template_directory_uri() . "/js/tsp-init.js", ["engine"], null, true);
-  wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", [], null, true);
+  //tsparticles scripts and configuration are being handled via the official plugin
+  // wp_enqueue_script("all", get_template_directory_uri() . "/assets/tsparticles.all.bundle.min.js", [], null, true);
+  // wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", ["all"], null, true);
+
   //anime js
-  // wp_enqueue_script('anime-core', get_template_directory_uri() . '/node_modules/animejs/lib/anime.min.js', [], null, []);
-  // wp_enqueue_script('anime-config', get_template_directory_uri(). '/js/cards.js', [], null, []);
+  wp_enqueue_script('anime-core', get_template_directory_uri() . '/node_modules/animejs/lib/anime.min.js', [], null, true);
+  wp_enqueue_script('anime-config', get_template_directory_uri(). '/js/cards.js', [], null, true);
+
   //bootstrap
   wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css');
-  wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', [], null, []);
+  wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', [], null, true);
   //custom styles
   wp_enqueue_style('blocks-styles', get_stylesheet_uri());
 }
@@ -64,14 +55,4 @@ function tg_year() {
 }
 add_shortcode('year', 'tg_year');
 
-//add es module type
-function tg_add_module($tag, $handle, $src) {
-  //if it's not the anime script, do nothing and return the tag
-  if ('anime-core' != $handle || 'anime-config' != $handle) {
-    return $tag;
-  }
-  //change the script tag by adding type="module" and return it.
-  $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
-  return $tag;
-}
-add_filter('script_loader_tag', 'tg_add_module', 10, 3);
+
