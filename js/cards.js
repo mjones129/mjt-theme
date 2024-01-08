@@ -1,9 +1,11 @@
-import { anime } from "animejs/lib/anime.es";
+function cardsUp() {
+  anime({
+    targets: '.card',
+    translateY: [250, 0],
+    opacity: [0, 1],
+    duration: 800,
+    delay: anime.stagger(300)
+  });
+}
 
-anime({
-  targets: 'div',
-  translateX: 250,
-  rotate: '1turn',
-  backgroundColor: '#FFF',
-  duration: 800
-});
+cardsUp();
