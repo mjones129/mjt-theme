@@ -37,6 +37,9 @@ function add_style() {
   // wp_enqueue_script("all", get_template_directory_uri() . "/assets/tsparticles.all.bundle.min.js", [], null, true);
   // wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", ["all"], null, true);
 
+  //tilt
+  wp_enqueue_script('tilt', get_template_directory_uri() . '/js/tilt.js', [], null, true);
+
   //anime js
   wp_enqueue_script('anime-core', get_template_directory_uri() . '/node_modules/animejs/lib/anime.min.js', [], null, true);
   wp_enqueue_script('anime-config', get_template_directory_uri(). '/js/cards.js', [], null, true);
