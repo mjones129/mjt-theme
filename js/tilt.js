@@ -408,10 +408,10 @@ HTMLElement.prototype.allTilt = function(settings) {
     _this.addEventListener('mousemove', tiltMove);
     _this.addEventListener('mouseleave', resetTransforms);
     // Enable Touch
-    _this.addEventListener("touchstart", touchHandler, true);
-    _this.addEventListener("touchmove", touchHandler, true);
-    _this.addEventListener("touchend", touchHandler, true);
-    _this.addEventListener("touchcancel", touchHandler, true);   
+    // _this.addEventListener("touchstart", touchHandler, true);
+    // _this.addEventListener("touchmove", touchHandler, true);
+    // _this.addEventListener("touchend", touchHandler, true);
+    // _this.addEventListener("touchcancel", touchHandler, true);   
   };
   
   this.init = () => {
