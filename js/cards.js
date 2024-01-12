@@ -9,3 +9,24 @@ function cardsUp() {
 }
 
 cardsUp();
+
+
+//remove tilt on mobile
+let cardObject = document.getElementsByClassName('wp-block-cover');
+let cards = Array.from(cardObject);
+if(window.innerWidth < 990) {
+  removeTilt();
+  };
+
+console.log(cards);
+
+
+function removeTilt() {
+  let cardObject = document.getElementsByClassName('wp-block-cover');
+  let cards = Array.from(cardObject);
+  for (let i = 0; i <= cardObject.length; i++) {
+    console.log(cardObject[i]);
+    cardObject[i].classList.remove('tilt');
+    console.log(`after: ${cardObject[i]}`);
+  }
+}
