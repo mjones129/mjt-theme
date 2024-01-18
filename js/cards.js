@@ -8,7 +8,7 @@ function cardsUp() {
   });
 }
 
-cardsUp();
+export cardsUp();
 
 
 //remove tilt on mobile
