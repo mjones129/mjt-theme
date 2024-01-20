@@ -11,9 +11,15 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 
 
 const config = {
-    entry: './js/main.js',
+    entry: {
+      main: './js/main.js',
+      tilt: './js/tilt.js'
+  },
     output: {
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
+        chunkFilename: '[id].[hash:8].js'
     },
     devServer: {
         open: true,
