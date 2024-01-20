@@ -37,18 +37,11 @@ function add_style() {
   // wp_enqueue_script("all", get_template_directory_uri() . "/assets/tsparticles.all.bundle.min.js", [], null, true);
   // wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", ["all"], null, true);
 
-  //tilt
-  wp_enqueue_script('tilt', get_template_directory_uri() . '/js/tilt.js', [], null, true);
+  //main webpack build
+  wp_enqueue_script('wpmain', get_template_directory_uri() . '/dist/main.js', [], null, true);
 
-  //anime js
-  wp_enqueue_script('anime-core', get_template_directory_uri() . '/node_modules/animejs/lib/anime.min.js', [], null, true);
-  wp_enqueue_script('anime-config', get_template_directory_uri(). '/js/cards.js', [], null, true);
 
-  //jsbeautify
-  wp_enqueue_script('js-beautify', 'https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.11/beautify.min.js', [], null, true);
-
-  //github stats query
-  wp_enqueue_script('gh-stats', get_template_directory_uri() . '/js/github-stats.js', [], null, true);
+  wp_enqueue_script('wptilt', get_template_directory_uri() . '/dist/tilt.js', [], null, true);
 
   //bootstrap
   wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css');
@@ -66,7 +59,7 @@ add_shortcode('year', 'tg_year');
 
 //load as ES6
 function load_as_ES6($tag, $handle, $source) {
-  if('gh-stats' === $handle) {
+  if('wpmain' === $handle) {
     $tag = '<script src="' . $source . '" type="module" ></script>';
   }
   return $tag;
