@@ -1,5 +1,5 @@
-// const { githubToken } = require('../includes/github-api-token.js');
 import { githubToken } from '../includes/github-api-token.js';
+import { js_beautify } from 'js-beautify';
 
 const endpoint = "https://api.github.com/graphql";
 const headers = {
@@ -30,7 +30,7 @@ const options = {
     "body": JSON.stringify(graphqlQuery)
 };
 
-async function listen() {
+export async function listen() {
   const response = await fetch(endpoint, options);
   const data = await response.json();
 
