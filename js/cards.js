@@ -1,4 +1,6 @@
-function cardsUp() {
+import anime from 'animejs/lib/anime.es.js';
+
+export function cardsUp() {
   anime({
     targets: '.card',
     translateY: [250, 0],
@@ -8,7 +10,6 @@ function cardsUp() {
   });
 }
 
-export cardsUp();
 
 
 //remove tilt on mobile
