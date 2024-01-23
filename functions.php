@@ -33,9 +33,6 @@ add_filter('pre_set_site_transient_update_themes', 'automatic_Github_updates', 1
 
 //Add stylesheet
 function add_style() {
-  //tsparticles scripts and configuration are being handled via the official plugin
-  // wp_enqueue_script("all", get_template_directory_uri() . "/assets/tsparticles.all.bundle.min.js", [], null, true);
-  // wp_enqueue_script("tsconfig", get_template_directory_uri() . "/js/particles-config.js", ["all"], null, true);
 
   //main webpack build
   wp_enqueue_script('wpmain', get_template_directory_uri() . '/dist/main.js', [], null, true);
