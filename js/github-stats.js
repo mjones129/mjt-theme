@@ -33,10 +33,6 @@ export async function listen() {
   const response = await fetch(endpoint, options);
   const data = await response.json();
 
-  // console.log(`response: ${response}`);
-  // console.log(`data: ${data.data}`);
-  // console.log(`errors: ${data.errors}`);
-  // console.log(`weeks[0]: ${data.data.user.contributionsCollection.contributionCalendar.weeks[0]}`);
 
   let string = JSON.stringify(data.data.user.contributionsCollection.contributionCalendar.weeks);
   let weeks = data.data.user.contributionsCollection.contributionCalendar.weeks;
@@ -44,13 +40,8 @@ export async function listen() {
   weeks.forEach(element => {
     let days = element.contributionDays;
     days.forEach(day => {
-      // console.log(`Day Loop: ${day.contributionCount}`);
-      // console.log(`type of day loop: ${typeof(day)}`);
       let count = day.contributionCount;
-      // let output = JSON.stringify(day.contributionCount);
     })
-    // console.log(`Type of days: ${typeof(days)}`);
-    // console.log(`days: ${days}`);
   })
 
   // document.getElementById('code').innerHTML = js_beautify(output); 
@@ -60,58 +51,61 @@ export async function listen() {
       return weeks;
 }
 
-// const githubData = listen();
-//
-// const ctx = document.getElementById('chart');
-// new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//       datasets: [{
-//         label: '# of Votes',
-//         data: githubData[0],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//       parsing: {
-//         x: {
-//         xAxisKey: githubData 
-//         }
-//       }
-//     }
-//   });
-// const cfg = {
-//   type: 'bar',
-//}
-//
+
 let weeks = await listen();
+
+let chartData = [];
 
 weeks.forEach(element => {
     let days = element.contributionDays;
     days.forEach(day => {
-      console.log(`Day Loop: ${day.contributionCount}`);
-      console.log(`type of day loop: ${typeof(day)}`);
+      // console.log(`Day Loop: ${day.contributionCount}`);
+      // console.log(`type of day loop: ${typeof(day)}`);
       let count = day.contributionCount;
-      // document.getElementById('code').innerHTML = js_beautify(day.contributionCount);
       // let output = JSON.stringify(day.contributionCount);
+      chartData.push(count);
     })
-    console.log(`Type of days: ${typeof(days)}`);
-    console.log(`days: ${days}`);
+    // console.log(`Type of days: ${typeof(days)}`);
+    // console.log(`days: ${days}`);
+    
   })
 
-new Chart(document.getElementById('chart'),
-  {
-    type: 'bar',
-    datasets: [
-      {
-        label: 'contribution weeks',
-        data: weeks 
-      }
-    ]
-  },
-  {
-    options: {}
-  }
-);
+console.log(`Chart Data: ${chartData}`);
 
+const ctx = document.getElementById('chart');
+
+  new Chart(ctx, {
+  type: 'bar',
+    data: {
+      labels: chartData,
+      datasets: [{
+        label: '# of GitHub Commits In The Last Year',
+        data: chartData,
+        borderWidth: 1,
+        backgroundColor: '#fcba03',
+        borderColor: '#fcba03'
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Last 365 Days'
+        },
+          grid: {
+            color: '#3b3b3b'
+        }
+       },
+        y: {
+          title: {
+            display: true,
+            text: 'Number of Commits'
+        },
+          grid: {
+            color: '#3b3b3b'
+        }
+      }
+      } 
+    }
+  });
