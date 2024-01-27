@@ -11,6 +11,7 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 
 
 const config = {
+  mode: 'production',
     entry: {
       main: './js/main.js',
       tilt: './js/tilt.js'
