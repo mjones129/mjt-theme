@@ -1,6 +1,7 @@
+// import { js_beautify } from 'js-beautify';
 import { githubToken } from '../includes/github-api-token.js';
-import { js_beautify } from 'js-beautify';
 import Chart from 'chart.js/auto';
+
 
 const endpoint = "https://api.github.com/graphql";
 const headers = {
