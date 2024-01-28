@@ -37,8 +37,12 @@ function add_style() {
   //main webpack build
   wp_enqueue_script('wpmain', get_template_directory_uri() . '/dist/main.js', [], null, true);
 
+  wp_enqueue_script('gh-token', get_template_directory_uri() . '/includes/github-api-token.js', [], null, true);
 
   wp_enqueue_script('wptilt', get_template_directory_uri() . '/dist/tilt.js', [], null, true);
+
+
+  wp_localize_script('gh-token', 'githubTokenObject', ['githubToken' => defined('GITHUB_PAT') ? GITHUB_PAT : '']);
 
   //bootstrap
   wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css');
@@ -56,9 +60,17 @@ add_shortcode('year', 'tg_year');
 
 //load as ES6
 function load_as_ES6($tag, $handle, $source) {
-  if('wpmain' === $handle) {
+  if('wpmain' === $handle || 'gh-token' === $handle) {
     $tag = '<script src="' . $source . '" type="module" ></script>';
   }
   return $tag;
 }
 add_filter('script_loader_tag', 'load_as_ES6', 10, 3);
+
+// add_action('wp_enqueue_script', function() {
+  // wp_localize_script('gh-stats', 'githubToken', 'GITHUB_PAT');
+// });
+
+// echo '<pre>'; var_dump(GITHUB_PAT); echo '</pre>';
+
+
