@@ -71,6 +71,5 @@ add_filter('script_loader_tag', 'load_as_ES6', 10, 3);
   // wp_localize_script('gh-stats', 'githubToken', 'GITHUB_PAT');
 // });
 
-// echo '<pre>'; var_dump(GITHUB_PAT); echo '</pre>';
 
 
