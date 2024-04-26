@@ -71,7 +71,7 @@ weeks.forEach(element => {
     
   })
 
-console.log(`Chart Data: ${chartData}`);
+// console.log(`Chart Data: ${chartData}`);
 
 const ctx = document.getElementById('chart');
 
